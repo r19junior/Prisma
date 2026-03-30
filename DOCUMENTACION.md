@@ -45,3 +45,14 @@ Los cimientos del proyecto configurados hasta ahora son los siguientes, listos p
 1. **`tailwind.config.mjs`**: Archivo de configuración que encapsula la paleta completa PRISMA y empareja las familias de fuentes (Google Fonts y custom `@font-face`).
 2. **`src/styles/global.css`**: Define las variables nativas CSS del manual, configura obligatoriamente las tipografías globales, implementa estilos directos para el funcionamiento estructural de Lenis, encapsula utilidades base de *glassmorphism* (e.g., `.glass`, `.glass-dark`) y provee la base del `custom-cursor`.
 3. **`src/layouts/Layout.astro`**: Plantilla base (HOC) del motor de Astro que se encarga del cascarón `<html>`, configuraciones SEO de Cabecera (meta tags, charset, links de preload tipográfico), y lo más importante: inyecta mediante etiquetas `<script>` la inicialización centralizada de Lenis y la vincula con el Ticker global de GSAP. Al mismo tiempo, inicia la escucha global de eventos de movimiento del ratón para el *Custom Cursor*.
+
+## 5. Recopilación de Datos Dinámicos (`src/data/*.json`)
+La landing page cuenta con una arquitectura de inyección de datos (Data Driven) estructurada a través de archivos **JSON** que reflejan las columnas necesarias en el gestor documental del equipo, divididas en 7 secciones core:
+
+- `0_inicio.json`: Gestiona métricas y textos de enganche.
+- `1_contacto.json`: Mapea arrays con plataformas, correos, visión y números de teléfono (`contacto.astro` mapea e inyecta esto automáticamente).
+- `2_historia.json`: Controla la enumeración de hitos visuales de la línea de tiempo.
+- `3_equipo.json`: Gestiona el listado completo de la directiva y fundadores de PRISMA, links a redes y bio de los integrantes.
+- `4_proyectos.json`: Estructura los eventos, el nombre de los pilares alcanzados (ODS) y sus fechas respectivas.
+- `5_aliados.json`: Genera los objetos gráficos a renderizar en las redes y marquesinas infinitas.
+- `6_reclutamiento.json`: Dicta las temporadas activadas y los links vigentes al formulario central de recursos humanos.
