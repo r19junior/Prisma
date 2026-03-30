@@ -6,6 +6,7 @@ import Hero from '../components/Hero';
 import PillarsGrid from '../components/PillarsGrid';
 import PartnersTicker from '../components/PartnersTicker';
 import Footer from '../components/Footer';
+import About from '../components/About';
 ---
 
 <Layout title="PRISMA Global Club | Inicio">
@@ -17,23 +18,8 @@ import Footer from '../components/Footer';
       <Hero client:only="react" />
     </div>
     
-    <!-- Pestaña 1: Información General y Contacto (Resumen) -->
-    <section class="py-24 px-6 bg-prisma-dark-red text-prisma-white text-center">
-      <div class="max-w-3xl mx-auto">
-        <span class="text-[11px] uppercase tracking-[0.4em] font-bold mb-4 block opacity-50 font-accent">Pestaña 1: Info General</span>
-        <h2 class="text-3xl md:text-5xl font-display mb-6">Misión y Visión Breves</h2>
-        <p class="font-light opacity-80 mb-8 font-body">Datos de Contacto: Correo / Teléfono / Plataformas Sociales</p>
-      </div>
-    </section>
-
-    <!-- Resumen Pestaña 2 y 3 (Nosotros) -->
-    <section class="py-24 px-6 text-center border-b border-prisma-dark-red/5">
-      <div class="max-w-3xl mx-auto">
-        <span class="text-[11px] uppercase tracking-[0.4em] text-prisma-dark-red font-bold mb-4 block font-accent">Pestaña 2 y 3: Equipo e Historia</span>
-        <p class="text-xl text-prisma-dark-red/60 mb-8 font-body">Ir a la página <strong>Nosotros</strong> para ver la Línea de Tiempo interactiva y el listado completo de Fundadores y Directiva.</p>
-        <a href="/nosotros" class="text-sm font-bold tracking-widest uppercase border-b border-prisma-dark-red pb-1">Conocer más →</a>
-      </div>
-    </section>
+    <!-- Pestaña 2 y 3: Esencia (Misión / Visión) -->
+    <About client:load />
 
     <!-- Pestaña 4: Resumen de Eventos y Proyectos -->
     <section class="py-24 border-b border-prisma-dark-red/5 bg-prisma-white">

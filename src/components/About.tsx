@@ -17,19 +17,21 @@ export default function About() {
     text.innerHTML = content
       .trim()
       .split(/\s+/)
-      .map((word) => `<span class="word opacity-20 inline-block">${word}</span>`)
+      .map((word) => `<span class="inline-block overflow-hidden align-bottom pb-2"><span class="word inline-block translate-y-[120%] opacity-0 blur-sm will-change-transform">${word}</span></span>`)
       .join(' ');
 
     const words = text.querySelectorAll('.word');
 
     gsap.to(words, {
+      y: '0%',
       opacity: 1,
-      stagger: 0.05,
+      filter: 'blur(0px)',
+      stagger: 0.04,
+      duration: 1.2,
+      ease: 'power4.out',
       scrollTrigger: {
         trigger: containerRef.current,
-        start: 'top 80%',
-        end: 'bottom 20%',
-        scrub: true,
+        start: 'top 60%',
       },
     });
   }, []);

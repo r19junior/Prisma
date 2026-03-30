@@ -26,30 +26,42 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="mb-8 text-prisma-dark-red font-display">
-              EXCELENCIA QUE<br />
-              <span className="text-prisma-light-red">TRANSFORMA</span><br />
-              <span className="text-outline">REALIDADES</span>
+            <h1 className="mb-8 font-display flex flex-col gap-2">
+              <span className="overflow-hidden block">
+                <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.23, 1, 0.32, 1], delay: 0.1 }} className="block text-prisma-dark-red">
+                  EXCELENCIA QUE
+                </motion.span>
+              </span>
+              <span className="overflow-hidden block">
+                <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.23, 1, 0.32, 1], delay: 0.2 }} className="block text-prisma-light-red">
+                  TRANSFORMA
+                </motion.span>
+              </span>
+              <span className="overflow-hidden block">
+                <motion.span initial={{ y: '100%' }} animate={{ y: 0 }} transition={{ duration: 1, ease: [0.23, 1, 0.32, 1], delay: 0.3 }} className="block text-outline tracking-wider">
+                  REALIDADES
+                </motion.span>
+              </span>
             </h1>
 
             <div className="max-w-xl mb-12">
-              <p className="text-lg md:text-xl text-prisma-dark-red/80 font-medium mb-4 font-body">
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }} className="text-lg md:text-xl text-prisma-dark-red/80 font-medium mb-4 font-body">
                 Somos un club juvenil que conecta a jóvenes del Perú y el mundo.
-              </p>
-              <p className="text-sm md:text-base text-prisma-dark-red/60 font-light leading-relaxed font-body">
+              </motion.p>
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5 }} className="text-sm md:text-base text-prisma-dark-red/60 font-light leading-relaxed font-body">
                 Buscamos generar cambios sostenibles a través de la educación, la cultura y la inclusión social, impulsando el liderazgo y la excelencia.
-              </p>
+              </motion.p>
             </div>
 
-            <div className="flex flex-wrap gap-6">
-              <a href="/nosotros" className="btn-primary group inline-flex">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.6 }} className="flex flex-wrap gap-6">
+              <a href="#about" className="btn-primary group inline-flex">
                 <span className="font-display">Nuestra Misión</span>
                 <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
               </a>
-              <a href="/impacto" className="inline-flex px-8 py-4 rounded-full border border-prisma-dark-red/20 text-prisma-dark-red font-display text-sm uppercase tracking-widest hover:bg-prisma-dark-red hover:text-white transition-all duration-500">
+              <a href="/proyectos" className="inline-flex px-8 py-4 rounded-full border border-prisma-dark-red/20 text-prisma-dark-red font-display text-sm uppercase tracking-widest hover:bg-prisma-dark-red hover:text-white transition-all duration-500">
                 Ver Proyectos
               </a>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -59,12 +71,12 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
-            className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl animate-float"
+            className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl animate-float group"
           >
             <img
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1000"
               alt="Team collaboration"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2s] ease-out will-change-transform"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-prisma-dark-red/40 to-transparent" />
