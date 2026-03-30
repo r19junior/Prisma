@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Instagram, Twitter, Linkedin, Github } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ hideCta = false }: { hideCta?: boolean }) {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -25,66 +25,68 @@ export default function Footer() {
   return (
     <footer id="join" className="pt-40 pb-12 px-6 md:px-20 bg-prisma-white">
       <div className="max-w-[1400px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-40">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
-            className="max-w-4xl w-full"
-          >
-            <span className="text-[11px] uppercase tracking-[0.6em] text-prisma-light-red font-bold mb-8 block font-brand">
-              Forma parte del cambio
-            </span>
-            <h2 className="text-6xl md:text-9xl tracking-tighter mb-16 text-prisma-dark-red font-display leading-none">
-              ÚNETE AL <span className="text-prisma-light-red">CLUB</span>
-            </h2>
+        {!hideCta && (
+          <div className="flex flex-col items-center text-center mb-40">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
+              className="max-w-4xl w-full"
+            >
+              <span className="text-[11px] uppercase tracking-[0.6em] text-prisma-light-red font-bold mb-8 block font-brand">
+                Forma parte del cambio
+              </span>
+              <h2 className="text-6xl md:text-9xl tracking-tighter mb-16 text-prisma-dark-red font-display leading-none">
+                ÚNETE AL <span className="text-prisma-light-red">CLUB</span>
+              </h2>
 
-            <form onSubmit={handleSubmit} className="max-w-md mx-auto relative">
-              <div className="relative group">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="TU EMAIL"
-                  className="w-full bg-transparent border-b border-prisma-dark-red/20 py-6 px-4 text-prisma-dark-red font-display text-lg focus:outline-none focus:border-prisma-dark-red transition-all duration-500 placeholder:text-prisma-dark-red/20 font-body"
-                  disabled={status === 'loading' || status === 'success'}
-                />
-                <button
-                  type="submit"
-                  disabled={status === 'loading' || status === 'success'}
-                  className={`absolute right-0 bottom-6 text-2xl transition-all duration-500 ${
-                    status === 'success' ? 'text-green-500' : 'text-prisma-dark-red hover:translate-x-2'
-                  }`}
-                >
-                  {status === 'loading' ? '...' : status === 'success' ? '✓' : '→'}
-                </button>
-              </div>
-              
-              <AnimatePresence mode="wait">
-                {status === 'success' && (
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="mt-6 text-[10px] uppercase tracking-[0.3em] text-green-600 font-bold"
+              <form onSubmit={handleSubmit} className="max-w-md mx-auto relative">
+                <div className="relative group">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="TU EMAIL"
+                    className="w-full bg-transparent border-b border-prisma-dark-red/20 py-6 px-4 text-prisma-dark-red font-display text-lg focus:outline-none focus:border-prisma-dark-red transition-all duration-500 placeholder:text-prisma-dark-red/20 font-body"
+                    disabled={status === 'loading' || status === 'success'}
+                  />
+                  <button
+                    type="submit"
+                    disabled={status === 'loading' || status === 'success'}
+                    className={`absolute right-0 bottom-6 text-2xl transition-all duration-500 ${
+                      status === 'success' ? 'text-green-500' : 'text-prisma-dark-red hover:translate-x-2'
+                    }`}
                   >
-                    ¡Bienvenido al Club! Pronto recibirás noticias.
-                  </motion.p>
-                )}
-                {status === 'error' && (
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className="mt-6 text-[10px] uppercase tracking-[0.3em] text-red-600 font-bold"
-                  >
-                    Algo salió mal. Inténtalo de nuevo.
-                  </motion.p>
-                )}
-              </AnimatePresence>
-            </form>
-          </motion.div>
-        </div>
+                    {status === 'loading' ? '...' : status === 'success' ? '✓' : '→'}
+                  </button>
+                </div>
+                
+                <AnimatePresence mode="wait">
+                  {status === 'success' && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="mt-6 text-[10px] uppercase tracking-[0.3em] text-green-600 font-bold"
+                    >
+                      ¡Bienvenido al Club! Pronto recibirás noticias.
+                    </motion.p>
+                  )}
+                  {status === 'error' && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0 }}
+                      className="mt-6 text-[10px] uppercase tracking-[0.3em] text-red-600 font-bold"
+                    >
+                      Algo salió mal. Inténtalo de nuevo.
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </form>
+            </motion.div>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-16 border-t border-prisma-dark-red/10 pt-24">
           <div className="md:col-span-6">
@@ -99,10 +101,12 @@ export default function Footer() {
           <div className="md:col-span-3">
             <h4 className="text-[11px] uppercase tracking-[0.4em] text-prisma-dark-red font-bold mb-8">Explora</h4>
             <ul className="space-y-4 text-sm text-prisma-dark-red/60">
-              <li><a href="#" className="hover:text-prisma-dark-red transition-all duration-300">Inicio</a></li>
-              <li><a href="#about" className="hover:text-prisma-dark-red transition-all duration-300">Esencia</a></li>
-              <li><a href="#pillars" className="hover:text-prisma-dark-red transition-all duration-300">Pilares</a></li>
-              <li><a href="#partners" className="hover:text-prisma-dark-red transition-all duration-300">Aliados</a></li>
+              <li><a href="/" className="hover:text-prisma-dark-red transition-all duration-300">Inicio</a></li>
+              <li><a href="/historia" className="hover:text-prisma-dark-red transition-all duration-300">Historia</a></li>
+              <li><a href="/equipo" className="hover:text-prisma-dark-red transition-all duration-300">Equipo</a></li>
+              <li><a href="/proyectos" className="hover:text-prisma-dark-red transition-all duration-300">Proyectos</a></li>
+              <li><a href="/aliados" className="hover:text-prisma-dark-red transition-all duration-300">Aliados</a></li>
+              <li><a href="/contacto" className="hover:text-prisma-dark-red transition-all duration-300">Contacto</a></li>
             </ul>
           </div>
 
