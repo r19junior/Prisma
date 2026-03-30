@@ -56,3 +56,12 @@ La landing page cuenta con una arquitectura de inyección de datos (Data Driven)
 - `4_proyectos.json`: Estructura los eventos, el nombre de los pilares alcanzados (ODS) y sus fechas respectivas.
 - `5_aliados.json`: Genera los objetos gráficos a renderizar en las redes y marquesinas infinitas.
 - `6_reclutamiento.json`: Dicta las temporadas activadas y los links vigentes al formulario central de recursos humanos.
+
+## 6. Motor de Animaciones (Framer Motion + GSAP)
+La landing page cuenta con un despliegue de animaciones de nivel "Awwwards" que refuerzan los arquetipos de marca Creativo y Héroe:
+
+### 6.1. Curtain Reveal (Telón GSAP)
+Ubicado en el componente de "Nuestra Esencia" (`About.tsx`). En lugar de simplemente alterar la opacidad, cada palabra está envuelta en máscaras `overflow-hidden`. Esto permite que, al hacer scroll, el texto emerja agresivamente de abajo hacia arriba (`y: 120% -> 0%`) desvaneciendo un desenfoque nativo (`blur-sm`). Este efecto está atado al `ScrollTrigger` general con un `stagger` de *0.04s* para simular naturalidad.
+
+### 6.2. Stagger Text y Cinematic Hover (Hero.tsx)
+Al cargar el sitio de Inicio, el Header usa *Framer Motion* para mostrar su título en tiempos desfasados (Capa 1: "EXCELENCIA", Capa 2: "TRANSFORMA", Capa 3: "REALIDADES"). Adicionalmente, el contenedor principal de exposición fotográfica integra una micro-interacción de "Zoom Lento", incrementando su escala visual a `110%` en una duración intencionada de 2 segundos completos al ser pasado el ratón por encima, invitando a la interacción constante del usuario.
