@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+---
+
+<Layout title="PRISMA Global Club | Equipo">
+  <Navbar client:load />
+  
+  <div class="relative z-10 pt-48 px-6 max-w-[1400px] mx-auto min-h-[70vh]">
+    <div class="flex items-center gap-6 mb-12">
+      <span class="text-[11px] uppercase tracking-[0.6em] text-prisma-dark-red font-bold">
+        Pestaña 3: Equipo y Fundadores
+      </span>
+      <div class="flex-1 h-[1px] bg-prisma-dark-red/10" />
+    </div>
+    <h1 class="text-6xl md:text-8xl text-prisma-dark-red font-display leading-[1.1] mb-16">FUNDADORES Y<br /><span class="text-prisma-light-red">DIRECTIVA</span></h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-32">
+      <!-- Placeholder Miembro -->
+      <div class="glass p-8 rounded-2xl flex flex-col items-center text-center relative overflow-hidden">
+        <div class="w-32 h-32 rounded-full border border-prisma-dark-red/10 bg-prisma-dark-red/5 mb-6 flex items-center justify-center text-[10px] text-prisma-dark-red/40">[Foto_JuanPerez.jpg]</div>
+        <span class="text-[10px] uppercase tracking-[0.2em] text-prisma-light-red font-bold mb-2">[Categoría: Fundador/Directiva]</span>
+        <h3 class="text-xl font-display text-prisma-dark-red mb-1">[Nombre Completo]</h3>
+        <span class="text-sm font-bold text-prisma-dark-red/50 tracking-widest mb-6 block uppercase">[Cargo / Rol]</span>
+        <p class="text-[12px] font-light text-prisma-dark-red/70 font-body mb-8 leading-relaxed">[Biografía Corta - Max 200 caracteres]</p>
+        <div class="flex gap-4 mt-auto">
+            <a href="#" class="text-xs font-bold text-prisma-dark-red border border-prisma-dark-red/20 px-4 py-2 rounded-full hover:bg-prisma-dark-red hover:text-white transition-colors">[Enlace LinkedIn]</a>
+            <a href="#" class="text-xs font-bold text-prisma-dark-red border border-prisma-dark-red/20 px-4 py-2 rounded-full hover:bg-prisma-dark-red hover:text-white transition-colors">[Enlace Instagram]</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <Footer client:load />
+
+  <div class="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
+  </div>
+</Layout>

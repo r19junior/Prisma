@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import contactData from '../data/1_contacto.json';
+---
+
+<Layout title="PRISMA Global Club | Contacto e Info">
+  <Navbar client:load />
+  
+  <div class="relative z-10 pt-48 px-6 max-w-[1400px] mx-auto min-h-[70vh]">
+    <div class="flex items-center gap-6 mb-12">
+      <span class="text-[11px] uppercase tracking-[0.6em] text-prisma-dark-red font-bold">
+        Pestaña 1: Información General y Contacto
+      </span>
+      <div class="flex-1 h-[1px] bg-prisma-dark-red/10" />
+    </div>
+    <h1 class="text-6xl md:text-8xl text-prisma-dark-red font-display leading-[1.1] mb-16">
+      BASES DEL <span class="text-prisma-light-red">CLUB</span>
+    </h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-32">
+      <div class="space-y-12">
+        <p class="text-xl font-light text-prisma-dark-red/80 font-body leading-relaxed">
+          Aquí se centraliza la información base que rige nuestro club, nuestros datos de contacto directo y los enlaces a cada una de nuestras plataformas oficiales.
+        </p>
+      </div>
+
+      <div class="glass p-12 rounded-3xl">
+        <h3 class="text-xs tracking-[0.4em] uppercase text-prisma-dark-red/40 font-bold mb-8">Directorio (Desde 1_contacto.json)</h3>
+        
+        <ul class="space-y-6">
+          {contactData.map((item) => (
+            <li class="border-b border-prisma-dark-red/5 pb-6 last:border-0 last:pb-0">
+              <span class="text-[10px] text-prisma-light-red uppercase tracking-widest font-bold block mb-1">{item.tipo_dato}</span>
+              {item.plataforma ? (
+                <a href={item.contenido_enlace} target="_blank" class="text-sm font-display text-prisma-dark-red hover:text-prisma-red transition-colors">
+                  {item.plataforma} →
+                </a>
+              ) : (
+                <span class="text-sm font-body text-prisma-dark-red">{item.contenido_enlace}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <Footer client:load />
+
+  <div class="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
+  </div>
+</Layout>

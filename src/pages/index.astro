@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Loader from '../components/Loader';
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import PillarsGrid from '../components/PillarsGrid';
+import PartnersTicker from '../components/PartnersTicker';
+import Footer from '../components/Footer';
+---
+
+<Layout title="PRISMA Global Club | Inicio">
+  <Loader client:load />
+  <Navbar client:load />
+  
+  <div class="relative z-10">
+    <div class="min-h-screen w-full bg-prisma-dark-red">
+      <Hero client:only="react" />
+    </div>
+    
+    <!-- Pestaña 1: Información General y Contacto (Resumen) -->
+    <section class="py-24 px-6 bg-prisma-dark-red text-prisma-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <span class="text-[11px] uppercase tracking-[0.4em] font-bold mb-4 block opacity-50 font-accent">Pestaña 1: Info General</span>
+        <h2 class="text-3xl md:text-5xl font-display mb-6">Misión y Visión Breves</h2>
+        <p class="font-light opacity-80 mb-8 font-body">Datos de Contacto: Correo / Teléfono / Plataformas Sociales</p>
+      </div>
+    </section>
+
+    <!-- Resumen Pestaña 2 y 3 (Nosotros) -->
+    <section class="py-24 px-6 text-center border-b border-prisma-dark-red/5">
+      <div class="max-w-3xl mx-auto">
+        <span class="text-[11px] uppercase tracking-[0.4em] text-prisma-dark-red font-bold mb-4 block font-accent">Pestaña 2 y 3: Equipo e Historia</span>
+        <p class="text-xl text-prisma-dark-red/60 mb-8 font-body">Ir a la página <strong>Nosotros</strong> para ver la Línea de Tiempo interactiva y el listado completo de Fundadores y Directiva.</p>
+        <a href="/nosotros" class="text-sm font-bold tracking-widest uppercase border-b border-prisma-dark-red pb-1">Conocer más →</a>
+      </div>
+    </section>
+
+    <!-- Pestaña 4: Resumen de Eventos y Proyectos -->
+    <section class="py-24 border-b border-prisma-dark-red/5 bg-prisma-white">
+      <div class="text-center mb-12 mt-12">
+         <span class="text-[11px] uppercase tracking-[0.4em] text-prisma-dark-red font-bold font-accent">Pestaña 4: Proyectos (Resumen)</span>
+         <p class="text-xl text-prisma-dark-red/60 mt-4 font-body">Aquí se destacarán las cuadrículas más representativas de impacto.</p>
+      </div>
+      <PillarsGrid client:only="react" />
+      <div class="text-center mt-12 pb-12">
+        <a href="/impacto" class="text-sm font-bold tracking-widest uppercase text-prisma-dark-red border-b border-prisma-dark-red pb-1">Ver Galería Completa →</a>
+      </div>
+    </section>
+
+    <!-- Pestaña 5: Resumen de Alianzas -->
+    <div class="pt-24 text-center">
+       <span class="text-[11px] uppercase tracking-[0.4em] text-prisma-dark-red font-bold font-accent">Pestaña 5: Alianzas (Marquee)</span>
+    </div>
+    <PartnersTicker client:only="react" />
+    
+    <!-- Pestaña 6: Únete / Reclutamiento irá conectado en el Hero CTA y Navbar -->
+    
+    <Footer client:load />
+  </div>
+
+  <div class="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
+  </div>
+</Layout>

@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+---
+
+<Layout title="PRISMA Global Club | Únete">
+  <Navbar client:load />
+  
+  <div class="relative z-10 pt-48 px-6 max-w-[1400px] mx-auto min-h-[70vh] flex flex-col items-center text-center">
+    <span class="text-[11px] uppercase tracking-[0.6em] text-prisma-light-red font-bold mb-8 block font-brand">
+      Pestaña 6: Reclutamiento
+    </span>
+    <h1 class="text-6xl md:text-9xl text-prisma-dark-red tracking-tighter font-display leading-none mb-12">
+      ÚNETE AL <span class="text-prisma-light-red">CLUB</span>
+    </h1>
+    
+    <!-- Placeholder Reclutamiento -->
+    <div class="glass p-12 rounded-3xl max-w-2xl w-full text-left mb-16">
+      <div class="mb-8">
+        <span class="text-[11px] text-prisma-dark-red/60 uppercase tracking-widest block mb-2">Temporada de Convocatoria</span>
+        <p class="text-2xl font-display text-prisma-dark-red">[Mes 202X]</p>
+      </div>
+      <div class="mb-8">
+        <span class="text-[11px] text-prisma-dark-red/60 uppercase tracking-widest block mb-2">Requisitos de Ingreso</span>
+        <ul class="list-disc pl-5 text-prisma-dark-red font-light text-sm space-y-2">
+          <li>[Requisito 1]</li>
+          <li>[Requisito 2]</li>
+        </ul>
+      </div>
+      <div class="mb-12">
+        <span class="text-[11px] text-prisma-dark-red/60 uppercase tracking-widest block mb-2">Perfil Buscado</span>
+        <p class="text-prisma-dark-red font-light text-sm">[Descripción del Perfil]</p>
+      </div>
+      
+      <div class="text-center mt-8">
+        <a href="[Enlace_Google_Forms]" target="_blank" class="btn-primary inline-flex w-full justify-center">
+          Formulario de Postulación →
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <Footer client:load />
+
+  <div class="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
+  </div>
+</Layout>

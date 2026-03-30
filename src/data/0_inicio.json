@@ -1,0 +1,20 @@
+[
+  {
+    "seccion_web": "Hero Principal",
+    "elemento": "Título Principal",
+    "contenido_esperado": "EXCELENCIA QUE TRANSFORMA REALIDADES",
+    "notas_limites": "Máximo 5 palabras. Se anima con GSAP."
+  },
+  {
+    "seccion_web": "Hero Principal",
+    "elemento": "Subtítulo",
+    "contenido_esperado": "Somos un club juvenil que conecta a jóvenes del Perú y el mundo...",
+    "notas_limites": "2 a 3 líneas de texto."
+  },
+  {
+    "seccion_web": "Impacto Rápido",
+    "elemento": "Métrica 1",
+    "contenido_esperado": "+15K Vidas Impactadas",
+    "notas_limites": "Números reales de impacto actualizados."
+  }
+]

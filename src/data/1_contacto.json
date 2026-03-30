@@ -1,0 +1,22 @@
+[
+  {
+    "tipo_dato": "Correo",
+    "contenido_enlace": "contacto@prismaglobal.club",
+    "plataforma": "Email"
+  },
+  {
+    "tipo_dato": "Teléfono",
+    "contenido_enlace": "+51 987 654 321",
+    "plataforma": "WhatsApp"
+  },
+  {
+    "tipo_dato": "Misión",
+    "contenido_enlace": "Conectar a jóvenes de Perú y el mundo para transformar realidades mediante proyectos de voluntariado alineados a los ODS.",
+    "plataforma": "Web"
+  },
+  {
+    "tipo_dato": "Instagram",
+    "contenido_enlace": "https://instagram.com/prismaglobalclub",
+    "plataforma": "Instagram"
+  }
+]

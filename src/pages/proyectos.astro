@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+---
+
+<Layout title="PRISMA Global Club | Impacto y Proyectos">
+  <Navbar client:load />
+  
+  <div class="relative z-10 pt-48 px-6 max-w-[1400px] mx-auto min-h-[70vh]">
+    <div class="flex items-center gap-6 mb-12">
+      <span class="text-[11px] uppercase tracking-[0.6em] text-prisma-dark-red font-bold">
+        Pestaña 4: Eventos y Proyectos
+      </span>
+      <div class="flex-1 h-[1px] bg-prisma-dark-red/10" />
+    </div>
+    <h1 class="text-6xl md:text-8xl text-prisma-dark-red font-display leading-[1.1] mb-8">PROYECTOS Y<br /><span class="text-prisma-light-red">GALERÍA</span></h1>
+    <p class="text-xl text-prisma-dark-red/60 font-body max-w-2xl mb-16">Aquí se integrarán las fotografías en alta calidad y el desglose de los voluntariados, ponencias y trabajo de campo realizados por el club.</p>
+
+    <!-- Placeholder Proyecto/Evento -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 py-12 border-t border-prisma-dark-red/10">
+      <div class="space-y-6">
+         <div class="aspect-video bg-prisma-dark-red/5 rounded-2xl flex items-center justify-center text-[10px] text-prisma-dark-red/40">[Voluntariado_01.jpg, Voluntariado_02.jpg]</div>
+         <span class="text-[11px] uppercase tracking-widest text-prisma-light-red block font-bold font-accent">[Fecha del Evento]</span>
+         <h3 class="text-3xl font-display text-prisma-dark-red">[Nombre del Proyecto / Evento]</h3>
+         <p class="text-sm font-light text-prisma-dark-red/60 font-body leading-relaxed">[Descripción Breve]</p>
+      </div>
+    </div>
+  </div>
+  
+  <Footer client:load />
+
+  <div class="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
+  </div>
+</Layout>

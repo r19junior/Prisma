@@ -1,0 +1,20 @@
+[
+  {
+    "categoria": "Fundador",
+    "nombre_completo": "Nombre de Ejemplo",
+    "cargo_rol": "Director General",
+    "biografia_corta": "Líder apasionado por la innovación social y los objetivos globales (Max 200 caracteres).",
+    "enlace_linkedin": "https://linkedin.com/in/usuario",
+    "enlace_instagram": "https://instagram.com/usuario",
+    "nombre_foto": "Foto_Fundador1.jpg"
+  },
+  {
+    "categoria": "Directiva",
+    "nombre_completo": "Otro Nombre",
+    "cargo_rol": "Director de Voluntariado",
+    "biografia_corta": "Especialista en reclutamiento y logística en campo.",
+    "enlace_linkedin": "https://linkedin.com/in/directivo",
+    "enlace_instagram": "",
+    "nombre_foto": "Foto_Directivo1.jpg"
+  }
+]

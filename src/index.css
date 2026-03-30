@@ -1,0 +1,157 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Local Font Placeholders for Brand Fonts */
+@font-face {
+  font-family: 'Gilker';
+  src: url('/fonts/Gilker.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JA Jayagiri Sans';
+  src: url('/fonts/JA-Jayagiri-Sans.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-display: "Archivo Black", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --font-brand: "Gilker", sans-serif;
+  --font-accent: "JA Jayagiri Sans", sans-serif;
+
+  --color-prisma-dark-red: #9d0116;
+  --color-prisma-red: #b43238;
+  --color-prisma-light-red: #fb6068;
+  --color-prisma-pink: #ffcfd1;
+  --color-prisma-white: #f8f8f8;
+  --color-prisma-black: #1a1a1a;
+
+  --color-pillar-education: #d61c30;
+  --color-pillar-environment: #4b9f37;
+  --color-pillar-inclusion: #dd1367;
+  --color-pillar-culture: #f89d2c;
+  --color-pillar-health: #66015c;
+  --color-pillar-citizenship: #00689d;
+}
+
+:root {
+  --bg: #f8f8f8;
+  --ink: #1a1a1a;
+  --accent: #9d0116;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--color-prisma-dark-red);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Text Outline */
+.text-outline {
+  -webkit-text-stroke: 1px var(--color-prisma-dark-red);
+  color: transparent;
+}
+
+/* Custom Cursor Styles */
+.custom-cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-prisma-dark-red);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s ease;
+}
+
+.custom-cursor.hover {
+  background-color: var(--color-prisma-light-red);
+  mix-blend-mode: difference;
+}
+
+/* Mesh Gradient Background */
+.mesh-bg {
+  background-color: var(--color-prisma-white);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(157, 1, 22, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(251, 96, 104, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(157, 1, 22, 0.05) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(251, 96, 104, 0.05) 0px, transparent 50%);
+}
+
+/* Split Text Animation */
+.split-text {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.split-text span {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.split-text.active span {
+  transform: translateY(0);
+}
+
+/* Refined Typography Scale */
+h1 { @apply text-4xl md:text-6xl lg:text-7xl leading-[1] tracking-tighter font-display; }
+h2 { @apply text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tighter font-display; }
+h3 { @apply text-xl md:text-2xl lg:text-3xl leading-[1.2] tracking-tight font-display; }
+p { @apply leading-relaxed; }
+
+/* Primary Button Utility */
+.btn-primary {
+  @apply px-8 py-4 rounded-full bg-prisma-dark-red text-white font-display text-sm uppercase tracking-widest transition-all duration-500 hover:bg-prisma-light-red hover:shadow-2xl hover:shadow-prisma-dark-red/30 active:scale-95 flex items-center justify-center gap-3;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(157, 1, 22, 0.1);
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(157, 1, 22, 0.2);
+}
+
+/* Grid Layouts */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar';
+import About from '../components/About';
+import Footer from '../components/Footer';
+---
+
+<Layout title="PRISMA Global Club | Historia">
+  <Navbar client:load />
+  
+  <div class="relative z-10 pt-20">
+    <About client:load />
+    
+    <!-- Pestaña 2: Línea de Tiempo (Historia) -->
+    <section class="py-32 px-6 bg-prisma-white border-t border-prisma-dark-red/10">
+      <div class="max-w-[1140px] mx-auto">
+        <span class="text-[11px] uppercase tracking-[0.4em] text-prisma-dark-red font-bold font-accent block mb-4">Pestaña 2: Historia y Línea de Tiempo</span>
+        <h2 class="text-4xl md:text-6xl text-prisma-dark-red font-display mb-16">EVOLUCIÓN CLAVE</h2>
+        
+        <!-- Placeholder Hito -->
+        <div class="flex flex-col md:flex-row gap-8 items-start mb-16 relative">
+          <!-- Line connector (decorativo) -->
+          <div class="hidden md:block absolute left-[25%] top-8 bottom-[-4rem] w-px bg-prisma-dark-red/10 -z-10"></div>
+          
+          <div class="md:w-1/4 pt-2">
+            <span class="text-xl font-display text-prisma-dark-red/80">[Mes y Año]</span>
+            <div class="hidden md:block absolute left-[25%] top-5 w-3 h-3 rounded-full bg-prisma-dark-red -translate-x-[6px]"></div>
+          </div>
+          <div class="md:w-1/2 glass p-8 rounded-2xl">
+            <h3 class="text-2xl font-display text-prisma-dark-red mb-4">[Título del Hito / Evento]</h3>
+            <p class="text-sm font-light text-prisma-dark-red/60 font-body leading-relaxed max-w-lg mb-6">[Descripción Corta - Max 2 líneas detallando la narrativa del club en este mes.]</p>
+          </div>
+          <div class="md:w-1/4">
+             <div class="w-full aspect-video bg-prisma-dark-red/5 rounded-xl flex items-center justify-center text-[10px] text-prisma-dark-red/40">[Hito_01_Fundacion.jpg]</div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <Footer client:load />
+  </div>
+
+  <div class="fixed inset-0 pointer-events-none z-[9999] opacity-[0.03] mix-blend-overlay">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noiseFilter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+      </filter>
+      <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+    </svg>
+  </div>
+</Layout>

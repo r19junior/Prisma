@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title = "PRISMA Global Club", description = "Excelencia que transforma realidades" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <!-- Google Fonts: Archivo Black & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-prisma-white text-prisma-black antialiased selection:bg-prisma-red selection:text-prisma-white">
+    <!-- Custom Cursor Base -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    
+    <main data-scroll-container>
+      <slot />
+    </main>
+
+    <script>
+      import Lenis from 'lenis';
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 1. Initialize Smooth Scroll (Lenis)
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+      });
+
+      // Synchronize Lenis scrolling with GSAP's ScrollTrigger
+      lenis.on('scroll', ScrollTrigger.update);
+
+      // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+
+      // Disable lag smoothing in GSAP to prevent any syncing issues
+      gsap.ticker.lagSmoothing(0, 0);
+
+      // 2. Custom Cursor Logic
+      const cursor = document.getElementById('custom-cursor');
+      
+      if (cursor) {
+        document.addEventListener('mousemove', (e) => {
+          gsap.to(cursor, {
+            x: e.clientX,
+            y: e.clientY,
+            duration: 0.15,
+            ease: 'power2.out'
+          });
+        });
+
+        // Hover Effect on interactive elements
+        const interactables = document.querySelectorAll('a, button, input, textarea, .interactable');
+        interactables.forEach((el) => {
+          el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+          el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+      }
+    </script>
+  </body>
+</html>

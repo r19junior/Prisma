@@ -1,0 +1,12 @@
+[
+  {
+    "nombre_organizacion": "UNESCO",
+    "tipo_alianza": "Institución Global",
+    "nombre_logo": "Logo_UNESCO.png"
+  },
+  {
+    "nombre_organizacion": "ONU Mujeres",
+    "tipo_alianza": "ONG Asociada",
+    "nombre_logo": "Logo_ONUMujeres.png"
+  }
+]

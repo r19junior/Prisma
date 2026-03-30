@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-prisma-dark-red: #9d0116;
+  --color-prisma-red: #b43238;
+  --color-prisma-light-red: #fb6068;
+  --color-prisma-pink: #ffcfd1;
+  --color-prisma-white: #f8f8f8;
+  --color-prisma-black: #0a0a0a;
+
+  --color-pillar-education: #d61c30;
+  --color-pillar-environment: #4b9f37;
+  --color-pillar-inclusion: #dd1367;
+  --color-pillar-culture: #f89d2c;
+  --color-pillar-health: #66015c;
+  --color-pillar-citizenship: #00689d;
+
+  --font-display: "Archivo Black", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --font-brand: "Gilker", sans-serif;
+  --font-accent: "JA Jayagiri Sans", sans-serif;
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Gilker';
+    /* 
+      src: url('/fonts/Gilker-Regular.woff2') format('woff2'),
+           url('/fonts/Gilker-Regular.woff') format('woff');
+    */
+    src: local('Gilker'); /* Fallback provisional para evitar error 404 en consola */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'JA Jayagiri Sans';
+    /*
+      src: url('/fonts/JA-Jayagiri-Sans.woff2') format('woff2'),
+           url('/fonts/JA-Jayagiri-Sans.woff') format('woff');
+    */
+    src: local('JA Jayagiri Sans'); /* Fallback provisional para evitar error 404 en consola */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --prisma-dark-red: #9d0116;
+    --prisma-red: #b43238;
+    --prisma-light-red: #fb6068;
+    --prisma-pink: #ffcfd1;
+    --prisma-white: #f8f8f8;
+    --prisma-black: #0a0a0a;
+  }
+
+  body {
+    background-color: var(--prisma-white);
+    color: var(--prisma-black);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    cursor: none; /* Forced disabled default cursor */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo Black', sans-serif;
+  }
+}
+
+@layer components {
+  /* Custom Cursor Styles */
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--prisma-red);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+    mix-blend-mode: difference;
+  }
+
+  .custom-cursor.hovering {
+    width: 50px;
+    height: 50px;
+    background-color: var(--prisma-white);
+    mix-blend-mode: difference;
+  }
+
+  /* Glassmorphism Utilities */
+  .glass {
+    @apply bg-prisma-white/70 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-dark {
+    @apply bg-prisma-black/70 backdrop-blur-md border border-white/5;
+  }
+  
+  /* Primary Button Utility */
+  .btn-primary {
+    @apply px-8 py-4 rounded-full bg-prisma-dark-red text-white font-display text-sm uppercase tracking-widest transition-all duration-500 hover:bg-prisma-light-red hover:shadow-2xl hover:shadow-prisma-dark-red/30 flex items-center justify-center gap-3;
+  }
+  
+  /* Mesh Background */
+  .mesh-bg {
+    background-color: var(--prisma-white);
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(157, 1, 22, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(251, 96, 104, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(157, 1, 22, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(251, 96, 104, 0.05) 0px, transparent 50%);
+  }
+}
+
+@layer utilities {
+  /* Fix Lenis basic styles */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+}
